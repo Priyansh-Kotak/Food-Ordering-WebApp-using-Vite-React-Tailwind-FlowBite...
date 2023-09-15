@@ -1,8 +1,27 @@
-# React + Vite
+# Apna Khana - Food Delivery Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Apna Khana**, your one-stop destination for convenient and delicious food delivery. This website is built using Vite, React, Tailwind CSS, and enhanced with Flowbit for an amazing user experience.
 
-Currently, two official plugins are available:
+![Apna Khana Screenshot](link_to_screenshot_or_image)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+
+## About
+
+**Apna Khana** is a user-friendly food delivery platform designed to make ordering your favorite meals hassle-free. Our goal is to provide a seamless and enjoyable food ordering experience for our users. We leverage modern web technologies and intuitive design to achieve this.
+
+## Features
+
+- **Vite**: A lightning-fast build tool and development server for React applications.
+- **React**: A powerful JavaScript library for creating dynamic and interactive user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for effortless styling and responsiveness.
+- **Flowbit**: Elevating user interaction with dynamic elements and data visualization.
+
+## Getting Started
+
+Follow these steps to run **Apna Khana** on your local machine:
+
+1. **Clone the Repository**: Start by cloning this repository to your local machine using the following command:
+
+   ```shell
+   git clone <repository-url>
