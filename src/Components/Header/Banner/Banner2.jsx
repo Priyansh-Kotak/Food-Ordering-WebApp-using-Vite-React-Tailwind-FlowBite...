@@ -9,14 +9,14 @@ export default function DefaultStickyBanner() {
     <Banner>
       <div className="relative top-0 left-0 z-20 flex justify-between w-full p-2 md:p-1 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
         <div className="flex items-center mx-auto">
-          <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
+          <div className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
             <img src={Clock} alt="Clock" /> {/* Use the img tag for images */}
             <span className="md:text-2xl">
               Hurry Up Free Delivery
               
             </span>
             <CountDown />
-          </p>
+          </div>
         </div>
         <Banner.CollapseButton
           color="gray"
