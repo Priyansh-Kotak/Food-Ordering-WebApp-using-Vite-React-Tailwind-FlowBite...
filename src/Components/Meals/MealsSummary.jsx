@@ -1,22 +1,15 @@
+
+import { Carousel } from "flowbite-react";
+
 const MealsSummary = () => {
   return (
-    <section className=" w-4/5 m-auto p-5 rounded-3xl text-cyan-50 bg-slate-800 shadow-2xl md:w-2/4 md:m-auto -translate-y-40 relative z-[-1] ">
-      <h1 className=" text-center md:text-3xl text-xl">
-        Delicious Food, Delevered to your Door step
-      </h1>
-      <p className=" pt-5 text-center md:text-lg  text-sm">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam
-        tempore consequatur consequuntur nisi placeat, corrupti praesentium
-        inventore enim, doloribus reiciendis tempora perspiciatis incidunt
-        cupiditate distinctio dignissimos vitae earum quod suscipit!
-      </p>
-      <p className=" text-center pt-5">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere iste
-        velit numquam reprehenderit molestiae quo officia doloribus architecto
-        pariatur, eum amet quisquam nam dolorem ratione repellendus culpa ipsum
-        harum! Fugiat?
-      </p>
-    </section>
+    <Carousel className="md:h-96 md:relative md:top-0 top-0 relative   h-64">
+      <img alt="..." src="https://lh3.googleusercontent.com/p/AF1QipN0rQ-3jd-_8z5h8MjHfs_zbWoPX20X7Js_VBdZ=s1360-w1360-h1020" />
+      <img alt="..." src="https://lh3.googleusercontent.com/p/AF1QipNnbxZ1zzSZrL5qRXM3G_4awG-o701BIQ0tB9bT=s1360-w1360-h1020" />
+      <img alt="..." src="https://lh3.googleusercontent.com/p/AF1QipMb-ot_ER1Z4CjrbsIZ5ssevMH2SXarlWc-MfFL=s1360-w1360-h1020" />
+      <img alt="..." src="https://lh3.googleusercontent.com/p/AF1QipNDP6bOnpW9vmYt0UgZCcK8D1eAin15xY8XGJGd=s1360-w1360-h1020" />
+      <img alt="..." src="https://lh3.googleusercontent.com/p/AF1QipNYUVoc0f_DgJBNt5Lk7iMohYCCjva3EEt4pwmr=s1360-w1360-h1020" />
+    </Carousel>
   );
 };
 export default MealsSummary;

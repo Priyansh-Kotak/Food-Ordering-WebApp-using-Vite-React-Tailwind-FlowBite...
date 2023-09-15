@@ -1,6 +1,6 @@
 const Card =(props)=>{
     return(
-        <section className=" ">
+        <section >
             {props.children}
         </section>
     )
