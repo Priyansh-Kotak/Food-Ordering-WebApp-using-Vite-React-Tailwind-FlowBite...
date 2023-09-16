@@ -1,6 +1,3 @@
-// import './index.css';
-// import { Banner } from "flowbite-react";
-import Banner from "./Banner/Banner";
 import Banner2 from "./Banner/Banner2";
 import HeaderButton from "../Header/HeaderButton";
 import MealsSummary from "../Meals/MealsSummary";

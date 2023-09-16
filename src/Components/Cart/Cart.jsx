@@ -1,5 +1,5 @@
 import Model from "../Cards/Modal";
-import CartContext from "../../store/cart-Context";
+import CartContext from "../../store/cart-context";
 import { useContext } from "react";
 import CartItems from "./CartItems";
 const Cart = (props) => {
