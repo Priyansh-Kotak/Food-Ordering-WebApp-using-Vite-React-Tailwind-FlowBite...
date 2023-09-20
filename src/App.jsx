@@ -6,7 +6,8 @@ import { useState } from "react";
 import Meals from "./Components/Meals/Meals";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
-import FooterWithSocialMediaIcons from "./Components/Footer/FooterWithSocialMediaIcons"
+import FooterWithSocialMediaIcons from "./Components/Footer/FooterWithSocialMediaIcons";
+import InputForm from "./Components/Forms/InputForm";
 function App() {
   const [showCart, setshowCart] = useState(false);
 
@@ -19,7 +20,7 @@ function App() {
   };
   return (
     <CartProvider>
-      {showCart && <Cart onhideCart={hideCart} />}
+      {showCart && <InputForm onhideCart={hideCart} />}
       <Header onshowCart={onShowCart} />
       <main>
         <Meals />

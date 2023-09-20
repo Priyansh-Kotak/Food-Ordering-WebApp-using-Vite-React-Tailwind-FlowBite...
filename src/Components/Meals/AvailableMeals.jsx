@@ -8,9 +8,20 @@ const AvailableMeals = () => {
   const [isloading, setisLoading] = useState(true);
   const [error, seterror] = useState(null);
 
+  let content = (
+    <h1 className=" text-center text-xl font-bold">
+      Something went wrong .....
+    </h1>
+  );
   useEffect(() => {
     const fetchMeal = async () => {
       seterror(null);
+      setisLoading(true);
+      setTimeout(() => {
+        setisLoading(false);
+        content;
+      }, 5000);
+
       try {
         const response = await fetch(
           "https://food-ordering-app-a7974-default-rtdb.firebaseio.com/food-ordering-app.json"
@@ -42,10 +53,8 @@ const AvailableMeals = () => {
     fetchMeal();
   }, []);
 
-  let content = <h1 className=" text-center">Found no data</h1>;
-
   if (isloading) {
-    content = <Loader className=" flex justify-center" />;
+    content = <Loader className=" flex justify-center text-center" />;
   }
 
   if (availableMeals.length > 0) {
