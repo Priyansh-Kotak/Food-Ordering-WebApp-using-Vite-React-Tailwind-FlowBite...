@@ -2,6 +2,9 @@ import Plus_MinusButton from "./Plus_MinusButton";
 
 export default function CartItems(props) {
   const price = `$${props.price.toFixed(2)}`;
+
+  console.log("I am inside CartItems js file");
+
   return (
     <li className="md:flex md:justify-between md:my-5 md:border-b-4 border-red-300 border-b-2 my-5 py-2   flex justify-between  md:border-red-300 md:pb-4">
       <div>
@@ -17,7 +20,7 @@ export default function CartItems(props) {
       </div>
 
       <div>
-        {props.arrayFunction && (
+        {props.arrayFunction() && (
           <Plus_MinusButton onRemove={props.onRemove} onAdd={props.onAdd} />
         )}
       </div>

@@ -65,10 +65,12 @@ const AvailableMeals = (props) => {
         name={meal.name}
         description={meal.description}
         price={meal.Price}
-        checkArray={props.checkArray} 
+        checkArray={props.checkArray}
+        arrayFunction={props.arrayFunction}
       />
     ));
   }
+  console.log("I am inside Available Meal js file");
 
   return (
     <section className=" relative drop-shadow-2xl p-4 md:-translate-y-16 -translate-y-16  rounded-3xl bg-slate-50 ml-4 mr-4 md:mb-9 md:w-3/5 md:ml-auto md:mr-auto ">

@@ -26,18 +26,8 @@ const Cart = (props) => {
     console.log("Form button has clicked");
     setshowForm(true);
     setButtonValue(true);
-  };
-
-  const arrayFunction = () => {
-    // Check if all elements in props.checkArray are false
-    props.checkArray.map((event) => {
-      console.log("Elements inside the array " + event);
-    });
-    console.log(
-      "Checking every element inside the array " +
-        props.checkArray.every((event) => event === true)
-    );
-    return props.checkArray.every((event) => event === true);
+    console.log("Array function checking " + props.arrayFunction());
+    console.log("First BuyNow button is clicked " + props.arrayFunction());
   };
 
   const [hideCart, sethideCart] = useState(true);
@@ -51,6 +41,7 @@ const Cart = (props) => {
     setcancelOreder(false);
     console.log("Cancel Order" + cancelOrder);
     props.checkArray.push(false);
+    console.log("Array function checking " + props.arrayFunction());
   };
 
   // const cancelorder = () => {
@@ -73,11 +64,13 @@ const Cart = (props) => {
           price={item.price}
           onRemove={cartItemRemoveHandler.bind(null, item.id)}
           onAdd={cartItemAddHandler.bind(null, item)}
-          arrayFunction={arrayFunction()}
+          arrayFunction={props.arrayFunction}
         />
       ))}
     </ul>
   );
+
+  console.log("I am inside Cart js file");
 
   return (
     <Model
@@ -101,7 +94,7 @@ const Cart = (props) => {
           </button>
         )}
 
-        {hasItems && !showForm && arrayFunction() ? (
+        {hasItems && !showForm && props.arrayFunction() ? (
           <button
             onClick={formhandler}
             type="button"
@@ -119,7 +112,10 @@ const Cart = (props) => {
             Buy now
           </button>
         ) : (
-          <Button checkArray={props.checkArray} reRender={arrayFunction} />
+          <Button
+            checkArray={props.checkArray}
+            arrayFunction={props.arrayFunction}
+          />
         )}
       </div>
 

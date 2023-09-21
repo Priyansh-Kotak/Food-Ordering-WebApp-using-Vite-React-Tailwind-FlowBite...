@@ -1,6 +1,6 @@
-import { useState } from "react";
-
 export default function Form(props) {
+  console.log("I am inside CartForms js file");
+
   return (
     <form onSubmit={props.hidecarthandler}>
       <h1 className="text-gray-900 font-bold md:text-2xl text-center bg-yellow-400 rounded-lg md:p-3 md:my-5 my-3 mb-5 text-xl p-3 w-full">

@@ -2,7 +2,7 @@
 
 import Header from "./Components/Header/Header";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Meals from "./Components/Meals/Meals";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
@@ -10,8 +10,9 @@ import FooterWithSocialMediaIcons from "./Components/Footer/FooterWithSocialMedi
 import InputForm from "./Components/Forms/InputForm";
 function App() {
   const [showCart, setshowCart] = useState(false);
-  const [checkArray,setcheckArray ] = useState([]);
+  const [checkArray, setcheckArray] = useState([]);
 
+  console.log("I am inside App js file");
   const onShowCart = () => {
     setshowCart(true);
   };
@@ -20,13 +21,31 @@ function App() {
     setshowCart(false);
   };
 
+  const arrayFunction = () => {
+    // Check if all elements in props.checkArray are false
+    checkArray.map((event) => {
+      console.log("Elements inside the array " + event);
+    });
+    console.log(
+      "Checking every element inside the array " +
+        checkArray.every((event) => event === true)
+    );
+    return checkArray.every((event) => event === true);
+  };
+
   // const checkArray = [true];
   return (
     <CartProvider>
-      {showCart && <InputForm onhideCart={hideCart} checkArray={checkArray} />}
+      {showCart && (
+        <InputForm
+          onhideCart={hideCart}
+          checkArray={checkArray}
+          arrayFunction={arrayFunction}
+        />
+      )}
       <Header onshowCart={onShowCart} />
       <main>
-        <Meals checkArray={checkArray}   />
+        <Meals checkArray={checkArray} arrayFunction={arrayFunction} />
       </main>
       <div>
         <FooterWithSocialMediaIcons />

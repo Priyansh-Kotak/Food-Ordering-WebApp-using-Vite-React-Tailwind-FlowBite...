@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Input from "../../Cards/Input";
+import Button from "../../Cart/Button";
 
 const MealForm = (props) => {
   const [amountValid, setamountValid] = useState(true);
@@ -21,17 +22,10 @@ const MealForm = (props) => {
     props.onAddToCart(enterAmountNumber);
   };
 
-  const arrayFunction = () => {
-    // Check if all elements in props.checkArray are false
-    props.checkArray.map((event) => {
-      console.log("Elements inside the array " + event);
-    });
-    console.log(
-      "Checking every element inside the array " +
-        props.checkArray.every((event) => event === false)
-    );
-    return props.checkArray.every((event) => event === true);
-  };
+  console.log(
+    "I am inside MealForm js file and checking the arrayfunction " +
+      props.arrayFunction()
+  );
 
   return (
     <form
@@ -50,13 +44,18 @@ const MealForm = (props) => {
           defaultValue: "1",
         }}
       />
-      {arrayFunction() && (
+      {props.arrayFunction() ? (
         <button
           type="submit"
           className="text-white w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mt-1 mb-1 "
         >
           Add +
         </button>
+      ) : (
+        <Button
+          arrayFunction={props.arrayFunction}
+          checkArray={props.checkArray}
+        />
       )}
       {!amountValid && <p>Please enter a valid number (1-5)</p>}
     </form>
