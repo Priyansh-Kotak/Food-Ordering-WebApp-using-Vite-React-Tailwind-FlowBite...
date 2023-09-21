@@ -1,8 +1,8 @@
 import AvailableMeals from "./AvailableMeals";
-const Meals = () => {
+const Meals = (props) => {
   return (
     <section>
-      <AvailableMeals />
+      <AvailableMeals checkArray={props.checkArray}  />
     </section>
   );
 };

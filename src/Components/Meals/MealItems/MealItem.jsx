@@ -22,7 +22,7 @@ const MealItem = (props) => {
         </div>
       </div>
 
-      <MealForm id={props.id} onAddToCart={onAddToCartHandler} />
+      <MealForm id={props.id} onAddToCart={onAddToCartHandler} checkArray={props.checkArray}  />
     </li>
   );
 };

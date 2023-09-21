@@ -3,7 +3,7 @@ import Card from "../Cards/Card";
 import MealItem from "./MealItems/MealItem";
 import Loader from "../Loader/Loader";
 
-const AvailableMeals = () => {
+const AvailableMeals = (props) => {
   const [availableMeals, setavailabelMeals] = useState([]);
   const [isloading, setisLoading] = useState(true);
   const [error, seterror] = useState(null);
@@ -65,6 +65,7 @@ const AvailableMeals = () => {
         name={meal.name}
         description={meal.description}
         price={meal.Price}
+        checkArray={props.checkArray} 
       />
     ));
   }

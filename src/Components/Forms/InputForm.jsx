@@ -12,5 +12,5 @@ export default function InputForm(props) {
   //   console.log("Form is submitted");
   // };
 
-  return <Cart onClose={props.onhideCart}></Cart>;
+  return <Cart onClose={props.onhideCart} checkArray={props.checkArray}></Cart>;
 }

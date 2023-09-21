@@ -10,6 +10,7 @@ import FooterWithSocialMediaIcons from "./Components/Footer/FooterWithSocialMedi
 import InputForm from "./Components/Forms/InputForm";
 function App() {
   const [showCart, setshowCart] = useState(false);
+  const [checkArray,setcheckArray ] = useState([]);
 
   const onShowCart = () => {
     setshowCart(true);
@@ -18,12 +19,14 @@ function App() {
   const hideCart = () => {
     setshowCart(false);
   };
+
+  // const checkArray = [true];
   return (
     <CartProvider>
-      {showCart && <InputForm onhideCart={hideCart} />}
+      {showCart && <InputForm onhideCart={hideCart} checkArray={checkArray} />}
       <Header onshowCart={onShowCart} />
       <main>
-        <Meals />
+        <Meals checkArray={checkArray}   />
       </main>
       <div>
         <FooterWithSocialMediaIcons />
