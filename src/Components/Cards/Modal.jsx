@@ -12,7 +12,7 @@ const BackDrop = (props) => {
 
 const ModelOverlay = (props) => {
   return (
-    <div className="border-2 fixed md: bg-white first-letter:white md:top-[30%] md:max-h-[60%] md:overflow-scroll top-[20%] w-[90%] left-[5%] rounded-2xl p-6 shadow-2xl z-30 md:w-1/3 md:left-1/3">
+    <div className="border-2 fixed md: bg-white first-letter:white md:top-[20%] md:max-h-[60%] md:overflow-scroll max-h-[60%] overflow-scroll top-[30%] w-[90%] left-[5%] rounded-2xl p-6 shadow-2xl z-30 md:w-1/3 md:left-1/3">
       <div>{props.children}</div>
     </div>
   );
@@ -20,7 +20,7 @@ const ModelOverlay = (props) => {
 
 const AlertOverlay = (props) => {
   return (
-    <div className=" fixed md: first-letter:white md:top-[30%] md:max-h-[60%]  top-[20%] w-[90%] left-[5%] rounded-2xl p-6 shadow-2xl z-30 md:w-1/3 md:left-1/3">
+    <div className=" fixed md: first-letter:white md:top-[30%] md:max-h-[60%]  top-[40%] w-[90%] left-[5%] rounded-2xl p-3 shadow-2xl z-30 md:w-1/3 md:left-1/3">
       <div>{props.children}</div>
     </div>
   );
@@ -43,7 +43,7 @@ const Model = (props) => {
       {props.onshowAlert &&
         ReactDOM.createPortal(
           <AlertOverlay>
-            <Alert />
+            <Alert onClose={props.onClose} />
           </AlertOverlay>,
           portalElement
         )}
