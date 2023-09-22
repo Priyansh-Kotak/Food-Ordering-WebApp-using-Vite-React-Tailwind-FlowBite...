@@ -24,7 +24,14 @@ const MealItem = (props) => {
         </div>
       </div>
 
-      <MealForm id={props.id} onAddToCart={onAddToCartHandler} checkArray={props.checkArray} arrayFunction={props.arrayFunction} />
+      <MealForm
+        id={props.id}
+        onAddToCart={onAddToCartHandler}
+        checkArray={props.checkArray}
+        arrayFunction={props.arrayFunction}
+        onhideCart={props.onhideCart}
+        onshowCart={props.onshowCart}
+      />
     </li>
   );
 };

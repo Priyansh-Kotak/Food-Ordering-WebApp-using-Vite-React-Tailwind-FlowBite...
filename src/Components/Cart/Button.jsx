@@ -3,17 +3,18 @@ export default function Button(props) {
     console.log("update is clicked ");
     props.checkArray.pop();
     console.log("After clicking the update order" + props.arrayFunction());
+
+    // console.log("Clicking the cart button " + props.onshowCart());
+    console.log("Clicking the Close button " + props.arrayFunction());
     Button(props);
   };
-  console.log("I am inside Button js file" + props.arrayFunction());
-
   return (
     <>
       {console.log(
         "Function running after update order is clicked " +
           props.arrayFunction()
       )}
-      {props.arrayFunction()}
+      {/* {props.arrayFunction()} */}
       {!props.arrayFunction() ? (
         <button
           onClick={updateOrder}
@@ -32,7 +33,7 @@ export default function Button(props) {
           Update Order
         </button>
       ) : (
-        props.arrayFunction() 
+        props.onshowCart()
       )}
     </>
   );

@@ -115,6 +115,8 @@ const Cart = (props) => {
           <Button
             checkArray={props.checkArray}
             arrayFunction={props.arrayFunction}
+            onClick={props.onClose}
+            onshowCart={props.onshowCart}
           />
         )}
       </div>

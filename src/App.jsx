@@ -41,11 +41,17 @@ function App() {
           onhideCart={hideCart}
           checkArray={checkArray}
           arrayFunction={arrayFunction}
+          onshowCart={onShowCart}
         />
       )}
       <Header onshowCart={onShowCart} />
       <main>
-        <Meals checkArray={checkArray} arrayFunction={arrayFunction} />
+        <Meals
+          checkArray={checkArray}
+          arrayFunction={arrayFunction}
+          onhideCart={hideCart}
+          onshowCart={onShowCart}
+        />
       </main>
       <div>
         <FooterWithSocialMediaIcons />

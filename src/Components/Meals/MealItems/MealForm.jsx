@@ -55,6 +55,8 @@ const MealForm = (props) => {
         <Button
           arrayFunction={props.arrayFunction}
           checkArray={props.checkArray}
+          onClick={props.onhideCart}
+          onshowCart={props.onshowCart}
         />
       )}
       {!amountValid && <p>Please enter a valid number (1-5)</p>}

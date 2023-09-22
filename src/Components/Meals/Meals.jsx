@@ -7,6 +7,8 @@ const Meals = (props) => {
       <AvailableMeals
         checkArray={props.checkArray}
         arrayFunction={props.arrayFunction}
+        onhideCart={props.onhideCart}
+        onshowCart={props.onshowCart}
       />
     </section>
   );
