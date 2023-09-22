@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
 import Alert from "../Alerts/Alert";
+// import CancleOrderAlert from "../Alerts/CancleOrderAlert";
 const BackDrop = (props) => {
   return (
     <div
@@ -12,7 +13,7 @@ const BackDrop = (props) => {
 
 const ModelOverlay = (props) => {
   return (
-    <div className="border-2 fixed md: bg-white first-letter:white md:top-[20%] md:max-h-[60%] md:overflow-scroll max-h-[60%] overflow-scroll top-[30%] w-[90%] left-[5%] rounded-2xl p-6 shadow-2xl z-30 md:w-1/3 md:left-1/3">
+    <div className="border-2 fixed md: bg-white first-letter:white md:top-[30%] md:max-h-[60%] md:overflow-scroll max-h-[60%] overflow-scroll top-[30%] w-[90%] left-[5%] rounded-2xl p-6 shadow-2xl z-30 md:w-1/3 md:left-1/3">
       <div>{props.children}</div>
     </div>
   );
@@ -25,6 +26,7 @@ const AlertOverlay = (props) => {
     </div>
   );
 };
+
 const portalElement = document.getElementById("overlays");
 
 const Model = (props) => {

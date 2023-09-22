@@ -1,33 +1,30 @@
 "use client";
 import Done from "../../../src/assets/icons8-ok.gif";
 import { Alert } from "flowbite-react";
-import ExampleAdditionalContent from "./ExampleAdditionalContent";
 
-export default function AllOptions(props) {
+export default function CancleOrderAlert(props) {
   return (
     <Alert
+      className="fixed left- w-full z-50"
       // additionalContent={<ExampleAdditionalContent />}
-      color="success"
+      color="failure"
       // icon={HiInformationCircle}
       onDismiss={setTimeout(() => {
+        console.log(
+          "I am inside cancel alert dismiss " + props.cancleAlertfunction()
+        );
+        // props.cancleAlertfunction();
+        props.cancleAlert.push(false);
         props.onClose();
-      }, 4000)}
+      }, 2000)}
       // rounded
     >
       <div>
         <div className="flex items-center">
           <img src={Done} alt="Loading Done " />
           <h1 className="md:text-2xl text-xl font-bold ml-4  ">
-            Successfully placed order 🥳
+            Canceled order Successfully
           </h1>
-        </div>
-
-        <div className="my-3 font-semibold md:text-lg">
-          Click on{" "}
-          <span className="font-bold mx-2 text-lg">
-            <i>Update Order</i>
-          </span>{" "}
-          to add more items...
         </div>
       </div>
     </Alert>

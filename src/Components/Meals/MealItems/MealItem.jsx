@@ -31,6 +31,7 @@ const MealItem = (props) => {
         arrayFunction={props.arrayFunction}
         onhideCart={props.onhideCart}
         onshowCart={props.onshowCart}
+        cancleAlert={props.cancleAlert}
       />
     </li>
   );

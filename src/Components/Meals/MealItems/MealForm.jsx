@@ -57,6 +57,7 @@ const MealForm = (props) => {
           checkArray={props.checkArray}
           onClick={props.onhideCart}
           onshowCart={props.onshowCart}
+          cancleAlert={props.cancleAlert}
         />
       )}
       {!amountValid && <p>Please enter a valid number (1-5)</p>}

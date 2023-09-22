@@ -3,9 +3,13 @@ export default function Button(props) {
     console.log("update is clicked ");
     props.checkArray.pop();
     console.log("After clicking the update order" + props.arrayFunction());
-
-    // console.log("Clicking the cart button " + props.onshowCart());
-    console.log("Clicking the Close button " + props.arrayFunction());
+    props.cancleAlert.map((event) => {
+      console.log("Alert array element before " + event);
+    });
+    while (props.cancleAlert.length > 0) {
+      console.log("We are inside loop ");
+      props.cancleAlert.pop();
+    }
     Button(props);
   };
   return (
@@ -33,7 +37,9 @@ export default function Button(props) {
           Update Order
         </button>
       ) : (
-        props.onshowCart()
+        setTimeout(() => {
+          props.onshowCart();
+        }, 0)
       )}
     </>
   );

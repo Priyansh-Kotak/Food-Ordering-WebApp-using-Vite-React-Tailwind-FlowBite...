@@ -44,15 +44,6 @@ const Cart = (props) => {
     console.log("Array function checking " + props.arrayFunction());
   };
 
-  // const cancelorder = () => {
-  //   // setcancelOreder(false);
-  //
-  // };
-
-  // useEffect(() => {
-  //   cancelorder();
-  //   checkArray;
-  // }, [cancelOrder]);
 
   const cartItems = (
     <ul className="pb-3 md:max-h-[20rem] md:overflow-scroll max-h-[20rem] overflow-scroll  ">

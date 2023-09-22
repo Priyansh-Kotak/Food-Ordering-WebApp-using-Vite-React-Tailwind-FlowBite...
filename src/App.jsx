@@ -11,6 +11,7 @@ import InputForm from "./Components/Forms/InputForm";
 function App() {
   const [showCart, setshowCart] = useState(false);
   const [checkArray, setcheckArray] = useState([]);
+  const [cancleAlert, setCancelAlert] = useState([false]);
 
   console.log("I am inside App js file");
   const onShowCart = () => {
@@ -33,6 +34,10 @@ function App() {
     return checkArray.every((event) => event === true);
   };
 
+  const cancleAlertfunction = () => {
+    return cancleAlert.every((event) => event === true);
+  };
+
   // const checkArray = [true];
   return (
     <CartProvider>
@@ -44,13 +49,19 @@ function App() {
           onshowCart={onShowCart}
         />
       )}
-      <Header onshowCart={onShowCart} />
+      <Header
+        onshowCart={onShowCart}
+        cancleAlertfunction={cancleAlertfunction}
+        cancleAlert={cancleAlert}
+        onhideCart={hideCart}
+      />
       <main>
         <Meals
           checkArray={checkArray}
           arrayFunction={arrayFunction}
           onhideCart={hideCart}
           onshowCart={onShowCart}
+          cancleAlert={cancleAlert}
         />
       </main>
       <div>
