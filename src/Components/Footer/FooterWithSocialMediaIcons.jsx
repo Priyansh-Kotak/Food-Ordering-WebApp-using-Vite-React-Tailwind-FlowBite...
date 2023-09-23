@@ -3,9 +3,12 @@ import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 export default function FooterWithSocialMediaIcons() {
   return (
-    <Footer container className=" translate-y-6 ">
+    <Footer
+      container
+      className="relative bottom-0 bg-white border-t border-gray-300 translate-y-2/3"   
+    >
       <div className="w-full">
-        <div className="w-full sm:flex sm:items-center sm:justify-between">
+        <div className="w-full sm:flex sm:items-center sm:justify-between ">
           <Footer.Copyright by="Priyansh Kotak ™" href="#" year={2022} />
           <h4>Made with ❤️ Priyansh Kotak </h4>
 

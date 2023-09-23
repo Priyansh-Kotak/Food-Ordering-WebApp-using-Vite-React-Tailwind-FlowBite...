@@ -1,66 +1,84 @@
+import { useEffect, useState } from "react";
 import Card from "../Cards/Card";
 import MealItem from "./MealItems/MealItem";
-const DummyData = [
-  
-  {
-    id: 'm2',
-    name: 'Pizza',
-    description: 'A german specialty!',
-    Price: 16.5,
-  },
-  {
-    id: 'm3',
-    name: 'Barbecue Burger',
-    description: 'HamBurger',
-    Price: 12.99,
-  },
-  {
-    id: 'm4',
-    name: 'Butter Naan',
-    description: 'Best ever Nan',
-    Price: 18.99,
-  },
-  {
-    id: 'm5',
-    name: 'Tomato Soup',
-    description: 'Healthy...and green...',
-    Price: 18.99,
-  },
-  {
-    id: 'm6',
-    name: 'Sandwiches',
-    description: 'Cheesy...',
-    Price: 18.99,
-  },
-  {
-    id: 'm7',
-    name: 'Hot Dog',
-    description: 'Best American.. ',
-    Price: 18.99,
-  },
-  {
-    id: 'm1',
-    name: 'Panner Tikka',
-    description: 'Punjabi Tadka',
-    Price: 22.99,
-  },
+import Loader from "../Loader/Loader";
 
-];
+const AvailableMeals = (props) => {
+  const [availableMeals, setavailabelMeals] = useState([]);
+  const [isloading, setisLoading] = useState(true);
+  const [error, seterror] = useState(null);
 
-const AvailableMeals = () => {
-  const mealList = DummyData.map((meal) => (
-    <MealItem
-      key={meal.id}
-      id={meal.id}
-      name={meal.name}
-      description={meal.description}
-      price={meal.Price}
-    />
-  ));
+  let content = (
+    <h1 className=" text-center text-xl font-bold">
+      Something went wrong .....
+    </h1>
+  );
+  useEffect(() => {
+    const fetchMeal = async () => {
+      seterror(null);
+      setisLoading(true);
+      setTimeout(() => {
+        setisLoading(false);
+        content;
+      }, 5000);
+
+      try {
+        const response = await fetch(
+          "https://food-ordering-app-a7974-default-rtdb.firebaseio.com/food-ordering-app.json"
+        );
+
+        if (!response.ok) {
+          throw new Error("Something went wrongg ......");
+        }
+        const data = await response.json();
+
+        const loadmeals = [];
+
+        for (const key in data) {
+          loadmeals.push({
+            id: key,
+            name: data[key].name,
+            description: data[key].description,
+            Price: data[key].Price,
+          });
+        }
+
+        setavailabelMeals(loadmeals);
+      } catch (error) {
+        seterror(error.message);
+      }
+    };
+    setisLoading(false);
+
+    fetchMeal();
+  }, []);
+
+  if (isloading) {
+    content = <Loader className=" flex justify-center text-center" />;
+  }
+
+  if (availableMeals.length > 0) {
+    content = availableMeals.map((meal) => (
+      <MealItem
+        key={meal.id}
+        id={meal.id}
+        name={meal.name}
+        description={meal.description}
+        price={meal.Price}
+        checkArray={props.checkArray}
+        arrayFunction={props.arrayFunction}
+        onhideCart={props.onhideCart}
+        onshowCart={props.onshowCart}
+        cancleAlert={props.cancleAlert}
+      />
+    ));
+  }
+  console.log("I am inside Available Meal js file");
+
   return (
     <section className=" relative drop-shadow-2xl p-4 md:-translate-y-16 -translate-y-16  rounded-3xl bg-slate-50 ml-4 mr-4 md:mb-9 md:w-3/5 md:ml-auto md:mr-auto ">
       <Card>
-        <ul className="w-full">{mealList}</ul>
+        <ul className="w-full">{content}</ul>
       </Card>
     </section>
   );

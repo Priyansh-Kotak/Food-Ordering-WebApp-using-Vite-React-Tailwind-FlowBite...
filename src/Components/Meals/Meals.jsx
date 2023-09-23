@@ -1,8 +1,16 @@
 import AvailableMeals from "./AvailableMeals";
-const Meals = () => {
+const Meals = (props) => {
+  console.log("I am inside Meal js file");
+
   return (
     <section>
-      <AvailableMeals />
+      <AvailableMeals
+        checkArray={props.checkArray}
+        arrayFunction={props.arrayFunction}
+        onhideCart={props.onhideCart}
+        onshowCart={props.onshowCart}
+        cancleAlert={props.cancleAlert}
+      />
     </section>
   );
 };

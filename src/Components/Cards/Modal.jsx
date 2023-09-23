@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
-
+import Alert from "../Alerts/Alert";
+// import CancleOrderAlert from "../Alerts/CancleOrderAlert";
 const BackDrop = (props) => {
   return (
     <div
@@ -12,7 +13,15 @@ const BackDrop = (props) => {
 
 const ModelOverlay = (props) => {
   return (
-    <div className="border-2 fixed bg-white md:top-[30%] top-[20%] w-[90%] left-[5%] rounded-2xl p-6 shadow-2xl z-30 md:w-1/3 md:left-1/3">
+    <div className="border-2 fixed md: bg-white first-letter:white md:top-[30%] md:max-h-[60%] md:overflow-scroll max-h-[60%] overflow-scroll top-[30%] w-[90%] left-[5%] rounded-2xl p-6 shadow-2xl z-30 md:w-1/3 md:left-1/3">
+      <div>{props.children}</div>
+    </div>
+  );
+};
+
+const AlertOverlay = (props) => {
+  return (
+    <div className=" fixed md: first-letter:white md:top-[30%] md:max-h-[60%]  top-[40%] w-[90%] left-[5%] rounded-2xl p-3 shadow-2xl z-30 md:w-1/3 md:left-1/3">
       <div>{props.children}</div>
     </div>
   );
@@ -27,10 +36,19 @@ const Model = (props) => {
         <BackDrop onClose={props.onClose} />,
         portalElement
       )}
-      {ReactDOM.createPortal(
-        <ModelOverlay>{props.children}</ModelOverlay>,
-        portalElement
-      )}
+      {props.onhideCart &&
+        ReactDOM.createPortal(
+          <ModelOverlay>{props.children}</ModelOverlay>,
+          portalElement
+        )}
+
+      {props.onshowAlert &&
+        ReactDOM.createPortal(
+          <AlertOverlay>
+            <Alert onClose={props.onClose} />
+          </AlertOverlay>,
+          portalElement
+        )}
     </Fragment>
   );
 };

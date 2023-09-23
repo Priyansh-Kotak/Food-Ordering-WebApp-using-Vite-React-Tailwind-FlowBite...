@@ -12,6 +12,8 @@ const MealItem = (props) => {
       price: props.price,
     });
   };
+  console.log("I am inside MealItems js file");
+
   return (
     <li className=" border-b-2 flex justify-between w-full my-4 md:flex md:ml-auto md:w-full md:p-4 md:justify-between  ">
       <div>
@@ -22,7 +24,15 @@ const MealItem = (props) => {
         </div>
       </div>
 
-      <MealForm id={props.id} onAddToCart={onAddToCartHandler} />
+      <MealForm
+        id={props.id}
+        onAddToCart={onAddToCartHandler}
+        checkArray={props.checkArray}
+        arrayFunction={props.arrayFunction}
+        onhideCart={props.onhideCart}
+        onshowCart={props.onshowCart}
+        cancleAlert={props.cancleAlert}
+      />
     </li>
   );
 };

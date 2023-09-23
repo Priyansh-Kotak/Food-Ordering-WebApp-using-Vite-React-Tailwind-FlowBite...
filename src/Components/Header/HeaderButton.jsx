@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import CartContext from "../../store/cart-context"
-
+import CartContext from "../../store/cart-context";
 
 const HeaderButton = (props) => {
   const cartCtx = useContext(CartContext);
@@ -35,6 +34,7 @@ const HeaderButton = (props) => {
       <button
         onClick={props.onclick}
         type="button"
+        hidden="hidden"
         className=" text-lg items-center ml-auto  w-36 pl-6  mr-20 px-3 py-2.5 font-medium text-center text-white bg-red-900 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 hidden md:inline-flex"
       >
         <svg

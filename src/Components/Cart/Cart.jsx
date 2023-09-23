@@ -1,7 +1,11 @@
 import Model from "../Cards/Modal";
 import CartContext from "../../store/cart-context";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartItems from "./CartItems";
+import CartForm from "../Forms/CartForm";
+import Alert from "../Alerts/Alert";
+import Button from "./Button";
+
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
@@ -15,6 +19,32 @@ const Cart = (props) => {
     cartCtx.addItems({ ...item, amount: 1 });
   };
 
+  const [buttonValue, setButtonValue] = useState(false);
+  const [showForm, setshowForm] = useState(false);
+
+  const formhandler = () => {
+    console.log("Form button has clicked");
+    setshowForm(true);
+    setButtonValue(true);
+    console.log("Array function checking " + props.arrayFunction());
+    console.log("First BuyNow button is clicked " + props.arrayFunction());
+  };
+
+  const [hideCart, sethideCart] = useState(true);
+  const [cancelOrder, setcancelOreder] = useState(true);
+
+  const hidecarthandler = (event) => {
+    event.preventDefault();
+    console.log("Submitted Form");
+    sethideCart(false);
+    console.log(hideCart);
+    setcancelOreder(false);
+    console.log("Cancel Order" + cancelOrder);
+    props.checkArray.push(false);
+    console.log("Array function checking " + props.arrayFunction());
+  };
+
+
   const cartItems = (
     <ul className="pb-3 md:max-h-[20rem] md:overflow-scroll max-h-[20rem] overflow-scroll  ">
       {cartCtx.items.map((item) => (
@@ -25,28 +55,39 @@ const Cart = (props) => {
           price={item.price}
           onRemove={cartItemRemoveHandler.bind(null, item.id)}
           onAdd={cartItemAddHandler.bind(null, item)}
+          arrayFunction={props.arrayFunction}
         />
       ))}
     </ul>
   );
+
+  console.log("I am inside Cart js file");
+
   return (
-    <Model onClose={props.onhideCart}>
+    <Model
+      onClose={props.onClose}
+      onhideCart={hideCart}
+      onshowAlert={!hideCart}
+    >
       {cartItems}
       <div className="flex justify-between pb-4 ">
         <span className=" font-bold text-2xl">TotalAmount</span>
         <span className="font-bold text-2xl">{totalAmount}</span>
       </div>
       <div className="flex justify-around md:flex md:justify-end">
-        <button
-          onClick={props.onhideCart}
-          type="button"
-          className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-        >
-          Close
-        </button>
-
-        {hasItems && (
+        {!showForm && (
           <button
+            onClick={props.onClose}
+            type="button"
+            className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+          >
+            Close
+          </button>
+        )}
+
+        {hasItems && !showForm && props.arrayFunction() ? (
+          <button
+            onClick={formhandler}
             type="button"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2 inline-flex items-center dark:bg-blue-600 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:focus:ring-blue-800"
           >
@@ -61,8 +102,17 @@ const Cart = (props) => {
             </svg>
             Buy now
           </button>
+        ) : (
+          <Button
+            checkArray={props.checkArray}
+            arrayFunction={props.arrayFunction}
+            onClick={props.onClose}
+            onshowCart={props.onshowCart}
+          />
         )}
       </div>
+
+      {showForm && <CartForm hidecarthandler={hidecarthandler} />}
     </Model>
   );
 };
