@@ -7,7 +7,7 @@ export default function Button(props) {
       console.log("Alert array element before " + event);
     });
     while (props.cancleAlert.length > 0) {
-      console.log("We are inside loop ");
+      console.log("We are inside while loop ");
       props.cancleAlert.pop();
     }
     Button(props);
