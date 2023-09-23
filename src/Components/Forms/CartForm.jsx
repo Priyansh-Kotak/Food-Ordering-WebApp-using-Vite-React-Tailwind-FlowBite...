@@ -1,5 +1,5 @@
 export default function Form(props) {
-  console.log("I am inside CartForms js file");
+  // console.log("I am inside CartForms js file");
 
   return (
     <form onSubmit={props.hidecarthandler}>

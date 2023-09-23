@@ -14,10 +14,10 @@ export default function Button(props) {
   };
   return (
     <>
-      {console.log(
+      {/* {console.log(
         "Function running after update order is clicked " +
           props.arrayFunction()
-      )}
+      )} */}
       {/* {props.arrayFunction()} */}
       {!props.arrayFunction() ? (
         <button
@@ -37,9 +37,7 @@ export default function Button(props) {
           Update Order
         </button>
       ) : (
-        setTimeout(() => {
-          props.onshowCart();
-        }, 0)
+        props.onshowCart()
       )}
     </>
   );
